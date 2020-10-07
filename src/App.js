@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import { Link, animateScroll as scroll } from "react-scroll";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import reducer from "./reducer";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Shop from "./Pages/Shop";
+import Error from "./Pages/Error";
+
+const store = createStore(reducer);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      {/* <Link
+        activeClass="active"
+        spy={true}
+        to="bottom"
+        smooth={true}
+        duration={5000}
+      >
+        To bottom
+      </Link> */}
+      <Provider store={store}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/shop" component={Shop} />
+          <Route path="*" component={Error} />
+        </Switch>
+      </Provider>
+    </React.Fragment>
   );
 }
-
 export default App;
