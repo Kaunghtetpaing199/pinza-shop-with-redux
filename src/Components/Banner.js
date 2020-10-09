@@ -1,14 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 class Banner extends Component {
-  state = {};
-
   render() {
-    AOS.init({ duration: 800 });
     return (
       <React.Fragment>
         <Wrapper>

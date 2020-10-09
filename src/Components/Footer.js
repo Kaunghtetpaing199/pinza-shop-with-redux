@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { GoLocation } from "react-icons/go";
-import {FaFacebookF} from 'react-icons/fa'
-import {AiOutlineInstagram,AiOutlineTwitter} from 'react-icons/ai'
+import { FaFacebookF } from "react-icons/fa";
+import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 class Footer extends Component {
   state = {};
   render() {
@@ -11,49 +11,57 @@ class Footer extends Component {
       <React.Fragment>
         <Footer1>
           <ul>
-            <li>
+            <li data-aos="zoom-in" data-aos-delay="100">
               <h3>info@pinza.com | T: 800-PINZA(74692)</h3>
             </li>
-            <li>
+            <li data-aos="zoom-in" data-aos-delay="200">
               <h3>
                 Business Bay - Weekdays: 9:00 AM to 1:00 AM | Weekends : 1:00 AM
                 closing
               </h3>
             </li>
-            <li>
+            <li data-aos="zoom-in" data-aos-delay="300">
               <h3>
                 JVC - Weekdays: 10:30 AM to 1:00 AM | Weekends: 1:00 AM closing
               </h3>
             </li>
-            <li>
+            <li data-aos="zoom-in" data-aos-delay="400">
               <h3>
                 Abu Dhabi - weekdays 11:00 AM to 12:00 AM | Weekends 12:00 AM
                 Closing
               </h3>
             </li>
-            <Link to="/">
-              see all locations <GoLocation className="icon" />{" "}
+            <Link to="/" data-aos="zoom-in-up" data-aos-delay="500">
+              see all locations{" "}
+              <i>
+                <GoLocation className="icon" />
+              </i>{" "}
             </Link>
           </ul>
         </Footer1>
         <Footer2>
           <ul>
-            <li>
-              © 2020- 2021 PINZA. All rights reserved.
-            </li>
-            <li className='icons'>
-             <a href='www.facebook.com'>
-                 <FaFacebookF/>
-             </a>
-             <a href='www.instagram.com'>
-                 <AiOutlineInstagram/>
-             </a>
-             <a href='www.twitter.com'>
-                 <AiOutlineTwitter/>
-             </a>
+            <li>© 2020- 2021 PINZA. All rights reserved.</li>
+            <li className="icons">
+              <a href="www.facebook.com">
+                <FaFacebookF />
+              </a>
+              <a href="www.instagram.com">
+                <AiOutlineInstagram />
+              </a>
+              <a href="www.twitter.com">
+                <AiOutlineTwitter />
+              </a>
             </li>
             <li>
-                developed by <Link to='/'>Kaung Htet Paing</Link>
+              developed by{" "}
+              <a
+                href="https://github.com/Kaunghtetpaing199"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Kaung Htet Paing
+              </a>
             </li>
           </ul>
         </Footer2>
@@ -106,39 +114,38 @@ const Footer1 = styled.footer`
   }
 `;
 const Footer2 = styled.footer`
-    height:100px;
-        width:100%;
-    ul{
-        width:100%;
-        height:100%;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
+  height: 100px;
+  width: 100%;
+  ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-    @media only screen and (max-width:400px){
-        flex-direction:column;
+    @media only screen and (max-width: 400px) {
+      flex-direction: column;
     }
-    li{
-        font-size:.8rem;
-        a{
-            color:var(--primary-color);
-  font-style: italic;
-            
+    li {
+      font-size: 0.8rem;
+      a {
+        color: var(--primary-color);
+        font-style: italic;
+      }
+    }
+    .icons {
+      a {
+        border: 2px solid var(--black);
+        margin: 0 5px;
+        border-radius: 100%;
+        padding: 0.5rem;
+        color: var(--black);
+        &:hover {
+          background: var(--main-color);
+          border-color: var(--main-color);
         }
+      }
     }
-    .icons{
-        a{
-            border:2px solid var(--black);
-            margin:0 5px;
-            border-radius:100%;
-            padding:.5rem;
-            color:var(--black);
-            &:hover{
-                background:var(--main-color);
-                border-color: var(--main-color);
-            }
-        }
-    }
-    }
+  }
 `;
 export default Footer;

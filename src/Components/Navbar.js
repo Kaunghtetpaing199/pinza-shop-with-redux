@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { DELETE } from "../actions";
+import { connect } from "react-redux";
 class Navbar extends Component {
   state = {
     isScrolled: false,
@@ -21,10 +23,7 @@ class Navbar extends Component {
   }
   handleClick = () => this.setState({ isClicked: !this.state.isClicked });
   render() {
-    let style = {
-      height: 90,
-      display: "none",
-    };
+    const toggle = this.props.toggle;
     return (
       <React.Fragment>
         <Wrapper>
@@ -60,23 +59,25 @@ class Navbar extends Component {
                   <Link to="/">menu</Link>
                 </li>
                 <li>
-                  <Link to="/">order online</Link>
+                  <h3 onClick={toggle} to="/">
+                    order online
+                  </h3>
                 </li>
                 <li>
-                  <Link to="/">
+                  <Link to="/" className="logo-link">
                     <img src="/Images/logo.svg" alt="logo" className="logo" />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">about</Link>
+                  <Link to="/about">about</Link>
                 </li>
                 <li>
-                  <Link to="/">popular pinza</Link>
+                  <Link to="/shop">popular pinza</Link>
                 </li>
               </ul>
             </li>
             <li className="nav-link3">
-              <Link to="/">franchising</Link>
+              <Link to="/contact">franchising</Link>
             </li>
           </ul>
         </Wrapper>
@@ -182,7 +183,7 @@ const Wrapper = styled.nav`
     transition: 0.5s ease-in-out;
     justify-content: center;
     transform: scale(0.8);
-    a:hover {
+    & *:hover {
       background: transparent;
       color: var(--main-color);
     }
@@ -203,15 +204,18 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
     &:nth-child(3) a:hover {
-      background: transparent;
+      background: transparent !important;
     }
+    
   }
-  .nav-link2 ul li a {
+  .nav-link2 ul li a,.nav-link2 h3{
     font-size: 1.2rem;
     letter-spacing: 1px;
     transition: 0.5s ease-in-out;
     padding: 0.3rem 0.8rem;
     border-radius: 5px;
+    cursor:pointer;
+    color:var(--white);
     &:hover {
       background: var(--primary-color);
     }
@@ -332,4 +336,10 @@ const Wrapper = styled.nav`
   }
 `;
 
-export default Navbar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggle: () => dispatch({ type: DELETE }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Navbar);

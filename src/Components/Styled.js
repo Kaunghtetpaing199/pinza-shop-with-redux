@@ -45,8 +45,12 @@ const Container = styled.div`
       width: 10%;
       height: 30px;
     }
-    .pinza-img {
+    .pinza-link {
       width: 40%;
+      height: 100%;
+    }
+    .pinza-img {
+      width: 100%;
       height: 100%;
       cursor: pointer;
     }

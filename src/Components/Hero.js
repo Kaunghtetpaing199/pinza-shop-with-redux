@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import Navbar from "./Navbar";
+import Nav from "./Nav";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 class Hero extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
+        <Nav />
         <Section>
           <img src="/Images/curl-banner.png" alt="banner" />
           <div>
             <h3>It's not pizza it's pinza!</h3>
-            <Link to="/">see more</Link>
+            <Link to="/shop">see more</Link>
           </div>
         </Section>
       </React.Fragment>
@@ -19,7 +19,6 @@ class Hero extends Component {
   }
 }
 const Section = styled.section`
-  transition: background-image 5s;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("/Images/bg2.jpg");
   background-position: center;

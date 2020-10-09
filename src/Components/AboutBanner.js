@@ -7,13 +7,13 @@ class Dough extends Component {
     return (
       <React.Fragment>
         <Wrapper>
-          <img src="/Images/about-7.png" alt="about" />
+          <img data-aos="fade-right" src="/Images/about-7.png" alt="about" />
 
-          <div>
+          <div data-aos="zoom-in-up">
             <h3>{this.props.title}</h3>
             <p>{this.props.letter}</p>
             {this.props.link ? (
-              <Link className="btn btn-primary" to="/">
+              <Link className="btn btn-primary" to="/shop">
                 online order
               </Link>
             ) : null}
